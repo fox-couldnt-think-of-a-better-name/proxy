@@ -1,0 +1,30 @@
+[package]
+name = "proxy"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.71"
+axum = { version = "0.6.18", features = [
+    "json",
+    "query",
+    "tokio",
+    "http2",
+    "headers",
+    "multipart",
+    "ws",
+] }
+image = { version = "0.24.6", features = ["avif", "libwebp"] }
+imageproc = "0.23.0"
+rusttype = "0.9.3"
+sqlx = { version = "0.6.3", features = ["postgres", "chrono", "runtime-tokio-native-tls"] }
+tokio = { version = "1.22", default-features = false, features = [
+    "macros",
+    "rt-multi-thread",
+    "sync",
+] }
+tower-http = { version = "0.4.0", features = ["trace"] }
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
